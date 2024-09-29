@@ -52,13 +52,13 @@ async function main() {
 
 	// CHANGE THIS VALUE FOR A CUSTOM VIDEO TOPIC
 	const videoTopic = 'Proximal Policy Optimization';
-	const aiGeneratedImages = true;
-	const fps = 15;
+	const aiGeneratedImages = false;
+	const fps = 60;
 	const duration = 1; //minute
 	//MINECRAFT or TRUCK or GTA
-	const background = 'TRUCK';
+	const background = 'MINECRAFT';
 	const music = 'NONE';
-	const cleanSrt = true;
+	const cleanSrt = false;
 
 	await transcribeFunction(
 		local,

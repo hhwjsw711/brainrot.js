@@ -364,7 +364,7 @@ export const AudiogramComposition: React.FC<AudiogramCompositionSchemaType> = ({
 						startFrom={20}
 						muted
 						className={`absolute -left-[1px] -top-[1px] h-full w-[101%] object-cover z-50 `}
-						src={'https://images.smart.wtf/brainrot.mp4'}
+						src={'https://res.cloudinary.com/dctisdduk/video/upload/v1727596561/brainrot-js/brainrot_ui1gsm.mp4'}
 					/>
 				</Sequence>
 			</AbsoluteFill>

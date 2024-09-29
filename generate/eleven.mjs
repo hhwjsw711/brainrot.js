@@ -32,8 +32,17 @@ export async function generateTranscriptAudio(
 		);
 	}
 
-	let transcript = (await transcriptFunction(topic, agentA, agentB, duration))
-		.transcript;
+	let transcript = [
+		{ person: 'JOE_ROGAN', line: '嘿，Jordan，今天我们来聊聊人工智能吧。你对这个话题有什么看法？', asset: 'Joe Rogan播客现场' },
+		{ person: 'JORDAN_PETERSON', line: '人工智能是一个非常复杂的话题，Joe。它涉及到技术、哲学和伦理等多个层面。', asset: 'Jordan Peterson思考' },
+		{ person: 'JOE_ROGAN', line: '确实，AI 似乎正在改变我们的生活方式。你认为它会给社会带来什么影响？', asset: 'AI影响社会' },
+		{ person: 'JORDAN_PETERSON', line: '这是个好问题。AI 可能会带来巨大的机遇，但同时也伴随着风险。我们需要谨慎对待。', asset: 'AI机遇与风险' },
+		{ person: 'JOE_ROGAN', line: '你提到了风险，能具体说说吗？', asset: 'Joe Rogan好奇表情' },
+		{ person: 'JORDAN_PETERSON', line: '比如说，AI 可能会影响就业市场，改变传统的工作模式。我们需要思考如何适应这种变化。', asset: 'AI对就业的影响' },
+	];
+
+	/* let transcript = (await transcriptFunction(topic, agentA, agentB, duration))
+		.transcript; */
 
 	const audios = [];
 
@@ -44,12 +53,51 @@ export async function generateTranscriptAudio(
 		);
 	}
 
-	const images = await fetchValidImages(
+	const images = [
+		{
+		  person: 'JOE_ROGAN',
+		  line: '嘿，Jordan，今天我们来聊聊人工智能吧。你对这个话题有什么看法？',
+		  asset: 'Joe Rogan播客现场',
+		  link: 'https://res.cloudinary.com/dctisdduk/image/upload/v1727596313/brainrot-js/joe_rogan_podcast_te0vq8.png'
+		},
+		{
+		  person: 'JORDAN_PETERSON',
+		  line: '人工智能是一个非常复杂的话题，Joe。它涉及到技术、哲学和伦理等多个层面。',
+		  asset: 'Jordan Peterson思考',
+		  link: 'https://res.cloudinary.com/dctisdduk/image/upload/v1727596312/brainrot-js/jordan_peterson_thinking_ifpvue.png'
+		},
+		{
+		  person: 'JOE_ROGAN',
+		  line: '确实，AI 似乎正在改变我们的生活方式。你认为它会给社会带来什么影响？',
+		  asset: 'AI影响社会',
+		  link: 'https://res.cloudinary.com/dctisdduk/image/upload/v1727596313/brainrot-js/ai_impact_society_sttxa7.png'
+		},
+		{
+		  person: 'JORDAN_PETERSON',
+		  line: '这是个好问题。AI 可能会带来巨大的机遇，但同时也伴随着风险。我们需要谨慎对待。',
+		  asset: 'AI机遇与风险',
+		  link: 'https://res.cloudinary.com/dctisdduk/image/upload/v1727596312/brainrot-js/ai_opportunities_risks_mamelh.png'
+		},
+		{
+		  person: 'JOE_ROGAN',
+		  line: '你提到了风险，能具体说说吗？',
+		  asset: 'Joe Rogan好奇表情',
+		  link: 'https://res.cloudinary.com/dctisdduk/image/upload/v1727596313/brainrot-js/joe_rogan_curious_ks0rgg.png'
+		},
+		{
+		  person: 'JORDAN_PETERSON',
+		  line: '比如说，AI 可能会影响就业市场，改变传统的工作模式。我们需要思考如何适应这种变化。',
+		  asset: 'AI对就业的影响',
+		  link: 'https://res.cloudinary.com/dctisdduk/image/upload/v1727596312/brainrot-js/ai_impact_employment_v2tcy7.png'
+		}
+	];
+
+	/* const images = await fetchValidImages(
 		transcript,
 		transcript.length,
 		ai,
 		duration,
-	);
+	); */
 
 	if (!local) {
 		await query(
@@ -103,9 +151,7 @@ export const music: string = ${
 	};
 export const fps = ${fps};
 export const initialAgentName = '${initialAgentName}';
-export const videoFileName = '/background/${background}-' + ${Math.floor(
-		Math.random() * 10,
-	)} + '.mp4';
+export const videoFileName = '/background/MINECRAFT-0.mp4';
 export const subtitlesFileName = [
   ${audios
 		.map(
